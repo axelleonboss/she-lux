@@ -1,0 +1,202 @@
+/* ================= GLOBAL ================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #0c0c0c;
+    color: white;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+                url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1974") center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-overlay h1 {
+    font-size: 70px;
+    letter-spacing: 6px;
+    color: gold;
+    margin: 0;
+    animation: fadeDown 1.2s ease;
+}
+
+.hero-overlay p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ddd;
+    animation: fadeUp 1.5s ease;
+}
+
+.hero-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 28px;
+    border: 1px solid gold;
+    color: gold;
+    transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+    background: gold;
+    color: black;
+}
+
+/* ================= PORTFOLIO ================= */
+
+.portfolio {
+    padding: 100px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    color: gold;
+}
+
+.gold-line {
+    width: 60px;
+    height: 3px;
+    background: gold;
+    margin: 15px auto 0;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.card {
+    background: #141414;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    transition: 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img,
+.card video {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+/* ================= WHATSAPP BUTTON ================= */
+
+.whatsapp-btn {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #25D366, #1ebe5d);
+    color: white;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(37,211,102,0.4);
+}
+
+/* ================= FLOATING BUTTON ================= */
+
+.floating-whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: 0.3s ease;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid #1f1f1f;
+    font-size: 13px;
+    color: #777;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .hero-overlay h1 {
+        font-size: 40px;
+    }
+
+    .card img,
+    .card video {
+        height: 250px;
+    }
+
+    .portfolio {
+        padding: 60px 5%;
+    }
+}

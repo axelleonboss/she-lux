@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SheLux Makeup Artistry</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Luxury Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero">
+    <div class="hero-overlay">
+        <h1>SHELUX</h1>
+        <p>Luxury Beauty. Timeless Elegance.</p>
+        <a href="#portfolio" class="hero-btn">View Our Work</a>
+    </div>
+</section>
+
+<!-- ================= PORTFOLIO ================= -->
+
+<section class="portfolio" id="portfolio">
+
+    <div class="section-title">
+        <h2>Our Signature Looks</h2>
+        <div class="gold-line"></div>
+    </div>
+
+    <div class="gallery">
+        {% for item in items %}
+        <div class="card">
+
+            {% if item.filename.endswith(('jpg','png','jpeg','gif')) %}
+                <img src="{{ url_for('static', filename='uploads/' + item.filename) }}">
+            {% else %}
+                <video controls>
+                    <source src="{{ url_for('static', filename='uploads/' + item.filename) }}">
+                </video>
+            {% endif %}
+
+            <div class="card-content">
+                <p>{{ item.description }}</p>
+
+                <a href="https://wa.me/2347071641293?text=Hello%20I%20am%20interested%20in%20this%20makeup%20look.%20Please%20share%20details."
+                   target="_blank"
+                   class="whatsapp-btn">
+                   💬 Book This Look
+                </a>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+<!-- Floating WhatsApp -->
+
+<a href="https://wa.me/2347071641293?text=Hello%20I%20want%20to%20book%20SheLux%20Makeup"
+   class="floating-whatsapp"
+   target="_blank">
+   💬
+</a>
+
+<footer>
+    © 2026 SheLux Makeup Artistry. All Rights Reserved.
+</footer>
+
+</body>
+</html>

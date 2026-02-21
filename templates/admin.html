@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SheLux Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+{% if login %}
+
+<!-- ================= LOGIN PAGE ================= -->
+
+<div class="admin-login">
+    <h1>SheLux Admin</h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <input type="password" name="password" placeholder="Enter Admin Password" required>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+{% endif %}
+
+
+{% if dashboard %}
+
+<!-- ================= DASHBOARD ================= -->
+
+<header class="admin-header">
+    <h1>SheLux Dashboard</h1>
+    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+</header>
+
+<div class="admin-container">
+
+    <!-- FLASH MESSAGE -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- UPLOAD FORM -->
+    <div class="upload-box">
+        <h2>Upload New Work</h2>
+
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="media" required>
+            <textarea name="description" placeholder="Write description..." required></textarea>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    <!-- POSTS -->
+    <div class="admin-gallery">
+        {% for item in items %}
+        <div class="admin-card">
+
+            {% if item.filename.endswith(('jpg','png','jpeg','gif')) %}
+                <img src="{{ url_for('static', filename='uploads/' + item.filename) }}">
+            {% else %}
+                <video controls>
+                    <source src="{{ url_for('static', filename='uploads/' + item.filename) }}">
+                </video>
+            {% endif %}
+
+            <p>{{ item.description }}</p>
+
+            <!-- FIXED DELETE BUTTON -->
+            <a href="{{ url_for('delete', id=item.id) }}" class="delete-btn">
+                Delete
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endif %}
+
+</body>
+</html>
