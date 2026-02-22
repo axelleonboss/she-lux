@@ -200,3 +200,108 @@ footer {
         padding: 60px 5%;
     }
 }
+/* =========================
+   ADMIN PAGE STYLING
+========================= */
+
+.admin-container {
+    width: 95%;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.admin-card {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+}
+
+.admin-card h2,
+.admin-card h3 {
+    color: gold;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.admin-card input,
+.admin-card textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    background: #2a2a2a;
+    color: white;
+}
+
+.admin-card button {
+    padding: 12px 20px;
+    background: gold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.admin-card button:hover {
+    opacity: 0.8;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    background: crimson;
+    padding: 8px 15px;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.admin-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.admin-item {
+    background: #181818;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.admin-item img,
+.admin-item video {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.delete-btn {
+    display: inline-block;
+    background: red;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 768px) {
+
+    .admin-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+}
